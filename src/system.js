@@ -1465,7 +1465,7 @@ export default class NestAccfactory {
         data.target_temperature_low = adjustTemperature(data.target_temperature_low, 'C', 'C', true);
         data.target_temperature = adjustTemperature(data.target_temperature, 'C', 'C', true);
         data.backplate_temperature = adjustTemperature(data.backplate_temperature, 'C', 'C', true);
-        data.current_temperature = adjustTemperature(data.current_temperature, 'C', 'C', true);
+        data.current_temperature = adjustTemperature(data.current_temperature, 'C', 'C', false);
         data.battery_level = scaleValue(data.battery_level, 3.6, 3.9, 0, 100);
         processed = data;
         // eslint-disable-next-line no-unused-vars
@@ -1974,7 +1974,7 @@ export default class NestAccfactory {
         data = process_common_data(object_key, data);
         data.device_type = NestAccfactory.DeviceType.TEMPSENSOR; // Nest Temperature sensor
         data.model = 'Temperature Sensor';
-        data.current_temperature = adjustTemperature(data.current_temperature, 'C', 'C', true);
+        data.current_temperature = adjustTemperature(data.current_temperature, 'C', 'C', false);
         processed = data;
         // eslint-disable-next-line no-unused-vars
       } catch (error) {
